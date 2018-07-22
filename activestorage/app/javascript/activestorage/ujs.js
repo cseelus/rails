@@ -49,7 +49,8 @@ function handleFormSubmissionEvent(event) {
 }
 
 function submitForm(form) {
-  let button = findElement(form, "input[type=submit]")
+  let { value, name } = form._ujsData["ujs:submit-button"]
+  let button = findElement(form, `input[value="${value}"][name="${name}"]`);
   if (button) {
     const { disabled } = button
     button.disabled = false
